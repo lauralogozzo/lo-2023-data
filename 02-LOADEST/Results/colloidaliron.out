@@ -1,0 +1,564 @@
+
+
+                                     LOADEST
+                      A Program to Estimate Constituent Loads
+                U.S. Geological Survey, Version: MOD48 (March 2013)
+                -------------------------------------------------
+
+ Connecticut River at Thompsonville CT (Station #01184000)                       
+
+ Constituent: colloidal iron                               
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part Ia: Calibration (Load Regression)
+
+ ----------------------------------------------------------------------
+
+ Number of Observations           :    39
+ Number of Uncensored Observations:    39
+ "center" of Decimal Time         :   2019.233
+ "center" of Ln(Q)                :    9.6390
+ Period of record                 :    2018-2020
+
+
+ Model Evaluation Criteria Based on AMLE Results
+ -----------------------------------------------
+
+ Model #     AIC           SPPC
+ ----------------------------------
+  1           1.467         -30.262
+  2           1.057         -23.107
+  3           1.373         -29.275
+  4           1.444         -31.490
+  5           0.987         -22.575
+  6           0.748         -18.740
+  7           1.406         -31.580
+  8           0.754         -19.703
+  9           0.807         -21.560
+
+ Model # 6 selected
+
+
+ Selected Model:
+ ---------------
+
+ Ln(Load) = a0 + a1 LnQ + a2 LnQ^2 + a3 Sin(2 pi dtime) + a4 Cos(2 pi dtime)
+
+ where:
+       Load  = constituent load [kg/d]
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+       Model Coefficients
+
+        a0        a1        a2        a3        a4
+       --------------------------------------------------
+ AMLE   8.1535    0.9790   -0.5654    0.1923   -0.3293
+ MLE    8.1535    0.9790   -0.5654    0.1923   -0.3293
+ LAD    8.1894    0.9423   -0.5045    0.1288   -0.3047
+
+
+ AMLE Regression Statistics
+ --------------------------
+ R-Squared [%]                  : 80.89
+ Residual Variance              : 0.1088
+ Serial Correlation of Residuals: 0.0070
+ Prob. Plot Corr. Coeff. (PPCC) : 0.9780
+ Significance Level of PPCC Test: 1.222E-01
+
+
+ Coeff.    Std.Dev.    t-ratio      P Value
+ --------------------------------------------
+ a0        0.0686       118.92      4.191E-53
+ a1        0.0963        10.16      1.616E-13
+ a2        0.0916        -6.17      6.219E-08
+ a3        0.0852         2.26      1.965E-02
+ a4        0.0864        -3.81      1.967E-04
+
+
+ Correlation Between Explanatory Variables
+ -----------------------------------------
+
+       Explanatory variable corresponding to:
+
+        a1        a2        a3
+       ------------------------------
+   a2   0.0000
+   a3  -0.4820   -0.0183
+   a4   0.3990   -0.1999   -0.0843
+
+
+ Additional Regression Statistics
+ --------------------------------
+ MLE Residual Variance: 0.1088
+
+
+
+ Comparison of Observed and Estimated Loads
+ ------------------------------------------
+   The summary statistics and bias diagnostics presented below are based
+ on a comparison of observed and estimated loads for all dates/times within 
+ the calibration data set. Although this comparison does not directly 
+ address errors in load estimation for unsampled dates/times, large 
+ discrepancies between observed and estimated loads are indicative of a 
+ poor model fit. Additional details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Loads in [KG/DAY] 
+ --------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+        -----------------------------------------------------------------------
+ Est.   4.11E+02 2.01E+03 3.41E+03 3.90E+03 5.16E+03 5.22E+03 7.57E+03 7.57E+03
+ Obs.   2.96E+02 1.95E+03 2.84E+03 3.62E+03 5.54E+03 7.86E+03 1.05E+04 1.05E+04
+ Est/Obs    1.39     1.03     1.20     1.08     0.93     0.66     0.72     0.72
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]    -0.047
+ PLR        1.000
+ E          0.659
+
+ where:
+
+    Bp  Load Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PLR Partial Load Ratio
+        Sum of estimated loads divided by sum of observed loads.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PLR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part Ib: Calibration (Concentration Regression)
+
+ ----------------------------------------------------------------------
+
+
+
+ AMLE Regression Statistics
+ --------------------------
+
+ Model # 6 was selected for the load regression (PART Ia) and is used here:
+
+ Ln(Conc) = a0 + a1 LnQ + a2 LnQ^2 + a3 Sin(2 pi dtime) + a4 Cos(2 pi dtime)
+
+ where:
+       Conc  = constituent concentration
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+ Concentration Regression Results
+ --------------------------------
+ R-Squared [%]                  : 63.24
+ Residual Variance              : 0.1088
+
+ Coeff.    Value         Std.Dev.     t-ratio     P Value
+ ----------------------------------------------------------
+ a0       -2.3802        0.0686      -34.72       2.360E-32
+ a1       -0.0210        0.0963       -0.22       8.158E-01
+ a2       -0.5654        0.0916       -6.17       6.219E-08
+ a3        0.1923        0.0852        2.26       1.965E-02
+ a4       -0.3293        0.0864       -3.81       1.967E-04
+
+
+ Comparison of Observed and Estimated Concentrations
+ ---------------------------------------------------
+   The summary statistics and bias diagnostics presented below are
+ based on a comparison of observed and estimated concentrations for
+ all dates/times within the calibration data set. Although this
+ comparison does not directly address errors in concentration estimation
+ for unsampled dates/times, large discrepancies between observed and
+ estimated concentrations are indicative of a poor model fit. Additional
+ details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Concentrations in      MG/L
+ -----------------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+       ------------------------------------------------------------------------
+ Est.   2.88E-02 5.85E-02 7.51E-02 1.14E-01 1.26E-01 1.35E-01 1.40E-01 1.40E-01
+ Obs.   1.70E-02 5.20E-02 7.60E-02 1.07E-01 1.33E-01 1.65E-01 1.94E-01 1.94E-01
+ Est/Obs    1.70     1.13     0.99     1.06     0.94     0.82     0.72     0.72
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]     0.697
+ PCR        1.007
+ E          0.683
+
+ where:
+
+    Bp  Concentration Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PCR Partial Concentration Ratio
+        Sum of est. concentrations divided by sum of obs. concentrations.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PCR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part IIa: Estimation (test for extrapolation)
+
+                 Load Estimates for 20160101-20211001
+ ----------------------------------------------------------------------
+
+
+
+ Streamflow Summary Statistics [cfs]
+ -----------------------------------
+
+ Data    Mean  Minimum 10th Pct 25th Pct   Median 75th Pct 90th Pct  Maximum
+ ---------------------------------------------------------------------------
+ Cal.  18006.    3700.    5210.    9090.   13200.   24900.   39700.   62700.
+ Est.  17922.    1770.    4180.    7470.   13800.   23550.   37880.   87100.
+
+ WARNING: The maximum estimation data set steamflow exceeds the maximum
+ calibration data set streamflow.  Load estimates require extrapolation.
+
+ Maximum Estimation Streamflow :  8.7100E+04
+ Maximum Calibration Streamflow:  6.2700E+04
+
+
+
+
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part IIb: Estimation (Load Estimates)
+
+                 Load Estimates for 20160101-20211001
+ ----------------------------------------------------------------------
+
+
+
+ Load Estimates [KG/DAY] 
+ ------------------------
+
+
+              AMLE Load Estimates
+              -------------------
+
+                                 95% Conf.Intervals
+                         Mean    ------------------   Std Error   Standard
+                 N       Load      Lower      Upper  Prediction      Error
+              ------------------------------------------------------------
+Est. Period   2101      2868.      2531.      3238.        180.       179.
+Season  1      552      3551.      2844.      4380.        392.       389.
+Season  2      552      2314.      1920.      2765.        216.       211.
+Season  3      466      2806.      2326.      3356.        263.       258.
+Season  4      531      2790.      2305.      3347.        266.       263.
+Jan. 2016       31      2772.      2166.      3494.        339.       290.
+Feb. 2016       29      2741.      2153.      3441.        329.       276.
+Mar. 2016       31      3701.      2901.      4653.        448.       386.
+Apr. 2016       30      3697.      2896.      4651.        448.       384.
+May  2016       31      3309.      2599.      4154.        397.       339.
+June 2016       30      1434.      1122.      1807.        175.       136.
+July 2016       31       951.       737.      1208.        120.       101.
+Aug. 2016       31      1006.       787.      1267.        123.        98.
+Sep. 2016       30     448.02     312.05     623.51       79.73      72.75
+Oct. 2016       31     721.10     532.17     955.57      108.28      89.92
+Nov. 2016       30      1348.      1021.      1747.        185.       162.
+Dec. 2016       31      2501.      1941.      3174.        315.       267.
+Jan. 2017       31      2419.      1854.      3103.        319.       282.
+Feb. 2017       28      1911.      1473.      2440.        247.       210.
+Mar. 2017       31      3039.      2396.      3801.        359.       306.
+Apr. 2017       30      4010.      2862.      5467.        666.       618.
+May  2017       31      4893.      3664.      6403.        700.       633.
+June 2017       30      4762.      3644.      6117.        632.       555.
+July 2017       31      3614.      2813.      4571.        449.       378.
+Aug. 2017       31      1411.      1129.      1742.        157.       126.
+Sep. 2017       30      1312.      1026.      1652.        160.       117.
+Oct. 2017       31      1658.      1244.      2164.        235.       166.
+Nov. 2017       30      3927.      3084.      4928.        471.       393.
+Dec. 2017       31      2123.      1620.      2733.        284.       250.
+Jan. 2018       31      3086.      2444.      3845.        358.       300.
+Feb. 2018       28      3034.      2389.      3799.        360.       301.
+Mar. 2018       31      2947.      2321.      3689.        350.       297.
+Apr. 2018       30      4173.      3118.      5471.        602.       543.
+May  2018       31      3625.      2796.      4623.        467.       407.
+June 2018       30      1058.       811.      1355.        139.       106.
+July 2018       31      2239.      1734.      2845.        284.       213.
+Aug. 2018       31      5102.      3903.      6554.        678.       593.
+Sep. 2018       30      3501.      2701.      4463.        450.       364.
+Oct. 2018       31      4840.      3751.      6148.        612.       531.
+Nov. 2018       30      5401.      4091.      6999.        743.       663.
+Dec. 2018       31      4188.      3304.      5237.        494.       421.
+Jan. 2019       31      3456.      2746.      4295.        396.       333.
+Feb. 2019       28      3174.      2495.      3982.        380.       319.
+Mar. 2019       31      2650.      2071.      3340.        324.       277.
+Apr. 2019       30      3595.      2341.      5285.        755.       721.
+May  2019       31      5047.      3742.      6661.        747.       680.
+June 2019       30      4705.      3629.      6001.        606.       530.
+July 2019       31      2334.      1867.      2883.        259.       206.
+Aug. 2019       31       889.       687.      1132.        114.        94.
+Sep. 2019       30     578.15     417.55     780.41       92.83      82.29
+Oct. 2019       31      3154.      2464.      3977.        386.       320.
+Nov. 2019       30      3603.      2822.      4533.        437.       366.
+Dec. 2019       31      3715.      2950.      4617.        426.       358.
+Jan. 2020       31      3264.      2579.      4075.        382.       325.
+Feb. 2020       29      2361.      1814.      3022.        309.       269.
+Mar. 2020       31      3637.      2857.      4565.        436.       375.
+Apr. 2020       30      4190.      3160.      5451.        586.       525.
+May  2020       31      4062.      3150.      5156.        513.       446.
+June 2020       30       911.       693.      1176.        123.       103.
+July 2020       31      1233.       974.      1540.        145.       115.
+Aug. 2020       31     439.29     310.62     603.66       75.00      64.55
+Sep. 2020       30     211.91     127.47     331.93       52.52      49.70
+Oct. 2020       31      1664.      1292.      2110.        209.       164.
+Nov. 2020       30      2199.      1701.      2799.        281.       239.
+Dec. 2020       31      3519.      2792.      4378.        405.       338.
+Jan. 2021       31      2570.      1987.      3272.        328.       285.
+Feb. 2021       28      1333.       976.      1778.        205.       186.
+Mar. 2021       31      2491.      1949.      3138.        304.       256.
+Apr. 2021       30      3577.      2805.      4496.        432.       369.
+May  2021       31      3312.      2557.      4219.        425.       365.
+June 2021       30      1402.      1097.      1765.        171.       135.
+July 2021       31      6123.      4478.      8179.        947.       865.
+Aug. 2021       31      4788.      3672.      6137.        630.       545.
+Sep. 2021       30      4555.      3533.      5781.        575.       492.
+Oct. 2021        1      2715.      1308.      5010.        958.       265.
+
+
+              MLE Load Estimates
+              ------------------
+
+                         Mean   Standard
+                 N       Load      Error
+              --------------------------
+Est. Period   2101      2868.       178.
+Season  1      552      3551.       388.
+Season  2      552      2314.       211.
+Season  3      466      2806.       257.
+Season  4      531      2790.       262.
+Jan. 2016       31      2772.       290.
+Feb. 2016       29      2741.       276.
+Mar. 2016       31      3701.       386.
+Apr. 2016       30      3697.       384.
+May  2016       31      3309.       338.
+June 2016       30      1434.       135.
+July 2016       31     950.92     100.92
+Aug. 2016       31      1006.        98.
+Sep. 2016       30     448.03      72.73
+Oct. 2016       31     721.11      89.87
+Nov. 2016       30      1348.       162.
+Dec. 2016       31      2501.       267.
+Jan. 2017       31      2419.       282.
+Feb. 2017       28      1911.       210.
+Mar. 2017       31      3039.       305.
+Apr. 2017       30      4010.       618.
+May  2017       31      4893.       633.
+June 2017       30      4762.       555.
+July 2017       31      3614.       377.
+Aug. 2017       31      1411.       126.
+Sep. 2017       30      1312.       117.
+Oct. 2017       31      1658.       166.
+Nov. 2017       30      3927.       393.
+Dec. 2017       31      2123.       250.
+Jan. 2018       31      3086.       299.
+Feb. 2018       28      3034.       301.
+Mar. 2018       31      2947.       296.
+Apr. 2018       30      4173.       543.
+May  2018       31      3625.       407.
+June 2018       30      1058.       106.
+July 2018       31      2239.       212.
+Aug. 2018       31      5102.       593.
+Sep. 2018       30      3501.       364.
+Oct. 2018       31      4840.       531.
+Nov. 2018       30      5401.       663.
+Dec. 2018       31      4188.       420.
+Jan. 2019       31      3456.       332.
+Feb. 2019       28      3174.       319.
+Mar. 2019       31      2650.       277.
+Apr. 2019       30      3595.       720.
+May  2019       31      5047.       680.
+June 2019       30      4705.       529.
+July 2019       31      2334.       206.
+Aug. 2019       31     888.96      93.82
+Sep. 2019       30     578.16      82.26
+Oct. 2019       31      3154.       319.
+Nov. 2019       30      3603.       366.
+Dec. 2019       31      3715.       357.
+Jan. 2020       31      3264.       325.
+Feb. 2020       29      2361.       269.
+Mar. 2020       31      3637.       375.
+Apr. 2020       30      4191.       525.
+May  2020       31      4062.       445.
+June 2020       30     911.11     103.27
+July 2020       31      1233.       115.
+Aug. 2020       31     439.29      64.52
+Sep. 2020       30     211.92      49.70
+Oct. 2020       31      1664.       164.
+Nov. 2020       30      2199.       239.
+Dec. 2020       31      3519.       338.
+Jan. 2021       31      2570.       284.
+Feb. 2021       28      1333.       185.
+Mar. 2021       31      2492.       255.
+Apr. 2021       30      3577.       369.
+May  2021       31      3312.       365.
+June 2021       30      1402.       135.
+July 2021       31      6123.       865.
+Aug. 2021       31      4788.       545.
+Sep. 2021       30      4555.       492.
+Oct. 2021        1      2715.       265.
+
+
+              LAD Load Estimates
+              ------------------
+
+                         Mean   Standard
+                 N       Load      Error
+              --------------------------
+Est. Period   2101      2851.       332.
+Season  1      552      3460.       722.
+Season  2      552      2190.       131.
+Season  3      466      2855.       281.
+Season  4      531      2904.       339.
+Jan. 2016       31      2895.       190.
+Feb. 2016       29      2880.       547.
+Mar. 2016       31      3743.       932.
+Apr. 2016       30      3599.       423.
+May  2016       31      3123.       307.
+June 2016       30      1387.       282.
+July 2016       31     951.46     213.83
+Aug. 2016       31      1013.       199.
+Sep. 2016       30     494.71      73.90
+Oct. 2016       31     779.27     112.67
+Nov. 2016       30      1436.       246.
+Dec. 2016       31      2609.       150.
+Jan. 2017       31      2531.       249.
+Feb. 2017       28      2031.       137.
+Mar. 2017       31      3080.       377.
+Apr. 2017       30      4071.      2006.
+May  2017       31      4669.      1342.
+June 2017       30      4407.       467.
+July 2017       31      3359.       201.
+Aug. 2017       31      1394.       293.
+Sep. 2017       30      1312.       208.
+Oct. 2017       31      1712.       366.
+Nov. 2017       30      3976.       449.
+Dec. 2017       31      2232.       290.
+Jan. 2018       31      3240.       564.
+Feb. 2018       28      3145.       462.
+Mar. 2018       31      2988.       338.
+Apr. 2018       30      4155.      1561.
+May  2018       31      3490.       583.
+June 2018       30      1042.       214.
+July 2018       31      2091.       223.
+Aug. 2018       31      4697.       253.
+Sep. 2018       30      3365.       194.
+Oct. 2018       31      4709.       282.
+Nov. 2018       30      5574.      2393.
+Dec. 2018       31      4385.      1363.
+Jan. 2019       31      3618.       757.
+Feb. 2019       28      3268.       370.
+Mar. 2019       31      2668.       166.
+Apr. 2019       30      3787.      2484.
+May  2019       31      4825.      1562.
+June 2019       30      4316.       268.
+July 2019       31      2195.       434.
+Aug. 2019       31     904.33     176.71
+Sep. 2019       30     624.60      97.81
+Oct. 2019       31      3121.       184.
+Nov. 2019       30      3643.       212.
+Dec. 2019       31      3873.       781.
+Jan. 2020       31      3399.       403.
+Feb. 2020       29      2445.       226.
+Mar. 2020       31      3672.       826.
+Apr. 2020       30      4152.      1433.
+May  2020       31      3849.       462.
+June 2020       30     912.12     215.25
+July 2020       31      1208.       266.
+Aug. 2020       31     468.59      77.11
+Sep. 2020       30     250.40      38.69
+Oct. 2020       31      1694.       216.
+Nov. 2020       30      2275.       276.
+Dec. 2020       31      3691.       827.
+Jan. 2021       31      2684.       174.
+Feb. 2021       28      1425.       297.
+Mar. 2021       31      2549.       330.
+Apr. 2021       30      3480.       335.
+May  2021       31      3195.       494.
+June 2021       30      1361.       296.
+July 2021       31      5667.      1396.
+Aug. 2021       31      4430.       242.
+Sep. 2021       30      4314.       214.
+Oct. 2021        1      2673.       454.
+
+
+
+ Summary Statistics - Estimated Loads [KG/DAY] 
+ ----------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE     40.    1447.    2943.    4026.    5024.    5751.    7367.    8065.
+ MLE      40.    1447.    2943.    4026.    5024.    5751.    7367.    8065.
+ LAD      59.    1502.    2959.    4013.    4832.    5587.    6918.    7660.
+
+
+
+ Summary Statistics - Estimated Concentrations [MG/L]
+ ----------------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE   0.009    0.054    0.069    0.090    0.114    0.126    0.139    0.142
+ MLE    0.009    0.055    0.069    0.090    0.114    0.126    0.139    0.142
+ LAD    0.014    0.057    0.070    0.088    0.108    0.119    0.130    0.132

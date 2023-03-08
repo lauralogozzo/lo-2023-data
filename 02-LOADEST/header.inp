@@ -1,0 +1,54 @@
+######################################################################
+#
+#  LOADEST Header File
+#
+#  Connecticut River at Thompsonville CT (Station #01184000)
+#
+#  Collected by Laura Logozzo from 2018 to 2020
+#
+######################################################################
+Connecticut River at Thompsonville CT (Station #01184000)
+1             |     PRTOPT (col.1-5)
+3             |     SEOPT (col.1-5)
+3             |     LDOPT (col. 1-5)
+###########################################################
+#
+# setup user defined seasons (LDOPT = 1 or 3 only)
+#
+# number of user-defined seasons (NSEAS) and begin and end
+# dates for each season (SBEG,SEND)
+#   
+###########################################################
+4             | NSEAS (col.1-5)
+#
+#SBEG      SEND   (I=1,NSEAS) 
+###########################################################
+0321       0620
+0621       0920
+0921       1220
+1221       0320
+###########################################################
+#
+# model number, MODNO (col.1-5)
+#
+###########################################################
+0
+###########################################################
+#
+# number of constituents, NCONST (col.1-5)
+#
+###########################################################
+4
+###########################################################
+#
+#  Unit flags and constituent names
+# 
+#                    for I = 1, NCONST
+#                                            Unit Flags   
+#CNAME                                       Conc Load
+#                                            |    |
+###########################################################
+soluble iron                                 1    1  
+colloidal iron                               1    1   
+dissolved organic carbon                     1    1   
+allochthonous-like doc                       1    1  
